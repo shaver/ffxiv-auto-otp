@@ -4,4 +4,4 @@ DIRNAME="$(dirname $0)"
 
 $DIRNAME/do-ffxiv-otp &
 
-XL_SECRET_PROVIDER=FILE flatpak run --parent-expose-pids --parent-share-pids --parent-pid=1 --branch=stable --arch=x86_64 --command=xivlauncher dev.goats.xivlauncher
+XL_SECRET_PROVIDER=FILE flatpak $@ run --parent-expose-pids --parent-share-pids --parent-pid=1 --branch=stable --arch=x86_64 --command=xivlauncher dev.goats.xivlauncher
