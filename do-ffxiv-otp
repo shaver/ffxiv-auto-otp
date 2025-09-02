@@ -52,6 +52,6 @@ for attempt in range(60):
     print(f"Generated TOTP: {totp}")
     if send_request(url):
         print("Request successful!")
-    else:
-        print("Request failed. Retrying in 1 second...")
+        exit(0)
+    print("Request failed. Retrying in 1 second...")
     time.sleep(1)
