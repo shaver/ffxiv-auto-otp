@@ -3,5 +3,17 @@
 DIRNAME="$(dirname $0)"
 
 $DIRNAME/do-ffxiv-otp &
+OTP_PID=$!
 
 XL_SECRET_PROVIDER=FILE flatpak run --parent-expose-pids --parent-share-pids --parent-pid=1 --branch=stable --arch=x86_64 --command=xivlauncher dev.goats.xivlauncher
+
+trap 
+
+function kill_otp()
+{
+	kill $OTP_PID
+}
+
+trap kill_otp SIGINT
+
+wait $OTP_PID
